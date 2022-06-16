@@ -1,0 +1,59 @@
+﻿<Window
+    x:Class="DataComplateSample.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:DataComplateSample"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <Button
+                x:Name="btnTrigger"
+                Width="100"
+                Height="30"
+                Margin="0,0,0,10"
+                Click="btnTrigger_Click"
+                Content="获取数据"
+                FontSize="18" />
+
+            <ComboBox
+                Name="cbbTest"
+                Width="150"
+                Height="20"
+                Margin="0,0,0,10">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Name}" />
+                            <TextBlock Text="---" />
+                            <TextBlock Text="{Binding Sex}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+            <ListBox
+                Width="150"
+                Height="300"
+                Background="AliceBlue"
+                ItemsSource="{Binding ElementName=cbbTest, Path=ItemsSource}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Name}" />
+                            <TextBlock Text="---" />
+                            <TextBlock Text="{Binding Sex}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+
+
+
+    </Grid>
+</Window>
